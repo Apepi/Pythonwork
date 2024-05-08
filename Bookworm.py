@@ -1,5 +1,17 @@
 import sqlite3
 
+# Function for checking valid qty input
+def qty_check_int(book_aty):
+    while True: # Loop to ensure valid int input for qty
+            try:
+                book_qty = int(input("\t\tBook quantity available: ")) # Prompting user to enter the quantity of books available
+            except ValueError:
+                print("\t\tInvalid input. Please enter a valid integer.")
+            else:
+                break
+    return book_qty
+
+
 # Function for searching for books in database
 def search_for_books(book_title):
 
