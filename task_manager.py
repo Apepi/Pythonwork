@@ -1,18 +1,16 @@
-#====imported modules====
 import datetime
 
-
-#new user function requests and verifies user inputs for user and pass
-#Then writes values with ", " seperator to user.txt file
+# Function to request and verify user inputs for username and password
 def add_new_user():    
     new_user = input("| Please type new username: ").lower()  
     while new_user in access_dict.keys():
-        new_user = input("| Username already exists try again: ").lower()  
+        new_user = input("| Username already exists, try again: ").lower()  
 
     while True: 
         new_pass = input("| Please type in desired password: ")
-        check_pass = input("| Please re-enter pasword: ")
+        check_pass = input("| Please re-enter password: ")
         if check_pass == new_pass:
+            # Write new username and password to user.txt file
             login.write(f"\n{new_user}, {new_pass}")
             print("| New user added successfully!\n|")
             break
@@ -20,16 +18,15 @@ def add_new_user():
             print("| Passwords do not match")   
     return access_dict
 
-#welcome message to be displayed up initiation
+# Welcome message to be displayed on initiation
 def welcome_msg():
     print("|======================================|")  
     print("|    T   A   S  K      ^       U   P   |")
     print("|======================================|")
-    print("|            ~~ Weclome ~~             ")
+    print("|            ~~ Welcome ~~             ")
 
-#function to check user input date matches format required 
+# Function to check if user input date matches required format 
 def check_date():
-    from datetime import datetime
     format = "%Y-%m-%d"
     global test_date    
     task_due = input("| Type due date (please use yyyy-mm-dd format): ")
@@ -38,8 +35,8 @@ def check_date():
     except ValueError:    
         print("| Incorrect Format")
     return task_due
-    
-#function for asking about new task inputs and writes them in specific format to txt file
+
+# Function for asking about new task inputs and writing them in specific format to txt file
 def add_new_task():
     task_title = input("| Type task title here: ")
     task_descrip = input("| Type description of task below:\n| ")
@@ -48,7 +45,7 @@ def add_new_task():
     f.write(f"{task_title}, {user_task}, {current_time}, {check_date()}, {task_status}, {task_descrip}\n")    
     print("| Task added Successfully!\n|")
 
-#function for formating how task infomation is displayed once read from txt file
+# Function for formatting how task information is displayed once read from txt file
 def task_output():
     global i    
     task_list.append(lines.split(', ', 5))
@@ -64,28 +61,26 @@ def task_output():
     print("--------------------------------------------------")
     i += 1
 
-#====Login Section====
+# Login Section
 while True:
-    #create dictionary from lines in txt file
-    #storing username as key and pass as value
     with open('user.txt', 'r') as login:
         access_dict = {}
         details = login.readlines()
+        # Create dictionary from lines in user.txt file
+        # Storing username as key and password as value
         for deets in details:
             key, value = deets.split(', ')            
             access_dict[key] = value.strip()
 
-        #checking that username and pass in dictionary
         welcome_msg()                    
         user_name = input("| Username: ")
         if user_name in access_dict.keys():                             
            user_pass = input("| Password: ")
            if user_pass == access_dict[user_name]:
-               print(f"| login successful! Welcome {user_name}\n|")
+               print(f"| Login successful! Welcome {user_name}\n|")
                break
            else:               
                tries = 3
-               #if pass incorrect user is allowed the attempts
                while user_pass != access_dict[user_name]:
                    print(f"| Password Incorrect, {tries} attempts remaining\n|")
                    user_pass = input("| Please type in your password: ")
@@ -96,14 +91,11 @@ while True:
                else:
                    break                      
         else:
-            print("User login incorrect try again..")
+            print("User login incorrect, try again..")
             continue
 
-    
 while True:
     with open('task.txt', 'a+') as f:
-        #presenting users with login menu
-        #admins get a separate menu
         if user_name == "admin":
             menu = input('''| Select one of the following options:
             | r - register a user
@@ -113,7 +105,6 @@ while True:
             | ta - Total users and tasks
             | e - exit
             | :  ''').lower()
-
         else:
             menu = input('''| Select one of the following options:
             | a - add task
@@ -123,10 +114,9 @@ while True:
             | :  ''').lower()
 
         if menu == 'r':
-            #if r is selected confirms user is admin before following sequence
-            #admin is allowed to add multiple users
             with open('user.txt', 'a+') as login:       
                 if user_name == "admin":
+                    # Add new user if user is admin
                     add_new_user()
                 else:
                     print("| You have entered an invalid input. Please try again")
@@ -142,50 +132,40 @@ while True:
                         print("| Invalid input...")            
                           
         elif menu == 'a':
-            #set date and time to current date/time of pc
-            #recreates dictionary of users.txt and verifies new task is assigned to registered user
-            #user is asked it input various task variables. once complete all info is written to task.txt
-            with open('user.txt', 'r') as t:
-                test_date = True
-                from datetime import date
-                current_time = date.today()
-                access_dict = {}
-                details = t.readlines()
-                for deets in details:
-                    key, value = deets.split(', ')            
-                    access_dict[key] = value.strip()
+            current_time = date.today()
+            access_dict = {}
+            details = t.readlines()
+            for deets in details:
+                key, value = deets.split(', ')            
+                access_dict[key] = value.strip()
 
-                user_task = input("| Type the user you would like to assign this task: ")
-                if user_task in access_dict.keys():                    
-                    add_new_task()
-                else:
-                    while user_task not in access_dict.keys():
-                        user_task = input("| User not found please re-enter username: ")                   
-                    add_new_task()
-                    continue
+            user_task = input("| Type the user you would like to assign this task: ")
+            if user_task in access_dict.keys():                    
+                add_new_task()
+            else:
+                while user_task not in access_dict.keys():
+                    user_task = input("| User not found please re-enter username: ")                   
+                add_new_task()
+                continue
 
         elif menu == 'va':
-            #reads each line of task.txt then splits lines and stores values in a list
-            #list items are run through function to be displayed in a pleasant format
             with open('task.txt', 'r') as t:
                 task_list = []
                 i = 0            
                 for lines in t:
+                    # Display all tasks
                     task_output()
                 
         elif menu == 'vm':
-            #read task.txt and splits lines to make list
-            #lines that include the username are taken and printed in pleasant format
             with open('task.txt', 'r') as t:
                 task_list = []
                 i = 0
                 for lines in t:
                     if user_name in lines:
+                        # Display tasks assigned to the current user
                         task_output()           
 
         elif menu == 'ta':
-            #only admin function
-            #reads all lines in user.txt and task.txt calculates length of lines and prints out the value
             if user_name == 'admin':            
                 with open('user.txt', 'r') as login:
                     all_user = login.readlines()
