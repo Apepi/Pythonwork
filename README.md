@@ -45,7 +45,7 @@ I'm continually working on new projects and improving existing ones. Stay tuned 
 
 Feel free to reach out if you have any questions or would like to discuss my work further.
 
-- LinkedIn: [Your Name](www.linkedin.com/in/alexander-büttner-217924155)
+- LinkedIn: [AlexB](www.linkedin.com/in/alexander-büttner-217924155)
 - GitHub: [@Apepi](https://github.com/Apepi)
 
 ---
