@@ -33,4 +33,21 @@ Through these projects, you'll see examples of my proficiency in:
 
 To explore this portfolio:
 
-1. Clone the repository:
+1. Clone the repository: git clone https://github.com/Apepi/pythonwork.git
+2. Navigate to individual project directories: cd pythonwork/project-name
+3. Follow the instructions in each project's README to set up and run the code
+
+## Future Development
+
+I'm continually working on new projects and improving existing ones. Stay tuned for updates!
+
+## Contact
+
+Feel free to reach out if you have any questions or would like to discuss my work further.
+
+- LinkedIn: [Your Name](www.linkedin.com/in/alexander-büttner-217924155)
+- GitHub: [@Apepi](https://github.com/Apepi)
+
+---
+
+Thank you for visiting my portfolio!
