@@ -59,6 +59,8 @@ MODBUS_ADDRESS = 1  # Adjust if your device uses a different address
 
 # Other Configuration
 POLLING_INTERVAL = 10  # seconds
+```
+
 3. Run the script: `python solarcontroller_logger.py`
 
 ## Note
