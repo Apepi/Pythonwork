@@ -44,7 +44,21 @@ This Python script is designed to retrieve data from a SRNE solar controller usi
 
 ## Running the Script
 1. Install required dependencies: `pip install minimalmodbus influxdb-client`
-2. Update the `config.py` file with your specific settings
+2. Create a `config.py` file in the same directory as the script. This file should contain your InfluxDB information and other configuration details. Here's an example of what your `config.py` should look like:
+
+```python
+# InfluxDB Configuration
+INFLUXDB_URL = "http://your-influxdb-url:8086"
+INFLUXDB_TOKEN = "your-influxdb-token"
+INFLUXDB_ORG = "your-organization"
+INFLUXDB_BUCKET = "your-bucket-name"
+
+# Modbus Configuration
+SERIAL_PORT = "/dev/ttyUSB0"  # Adjust this to your serial port
+MODBUS_ADDRESS = 1  # Adjust if your device uses a different address
+
+# Other Configuration
+POLLING_INTERVAL = 10  # seconds
 3. Run the script: `python solarcontroller_logger.py`
 
 ## Note
