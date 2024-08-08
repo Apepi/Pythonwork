@@ -4,7 +4,7 @@ Welcome to my Python portfolio! This repository showcases a collection of projec
 
 ## Contents
 
-This portfolio currently includes three main projects:
+This portfolio currently includes four main projects:
 
 ### 1. Bookstore Management System
 - A SQLite-based application for managing a bookstore's inventory
@@ -17,6 +17,11 @@ This portfolio currently includes three main projects:
 ### 3. Solar Controller Data Logger
 - A script for retrieving data from a SRNE solar controller and logging it to InfluxDB
 - Demonstrates IoT device communication, time-series data handling, and integration with cloud databases
+
+### 4. MoneyWiz
+- A command-line personal finance tracker built with Python
+- Features expense tracking, income management, budget setting, and financial goal tracking
+- Utilizes SQLite for local data storage and demonstrates database operations, user input handling, and financial calculations
 
 Each project has its own directory with a dedicated README providing more details on its purpose, features, and how to run the code.
 
@@ -36,6 +41,8 @@ Through these projects, you'll see examples of my proficiency in:
 - Integration with time-series databases (InfluxDB)
 - Real-time data logging and monitoring
 - Configuration management for deployable scripts
+- Personal finance management algorithms
+- Data summarization and reporting
 
 ## Getting Started
 
