@@ -23,7 +23,7 @@ MoneyWiz is a command-line personal finance tracker built with Python. It helps 
 
 1. Clone this repository:
    ```
-   git clone https://github.com/yourusername/moneywiz.git
+   git clone https://github.com/Apepi/moneywiz.git
    ```
 2. Navigate to the project directory:
    ```
