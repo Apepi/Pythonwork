@@ -1,10 +1,4 @@
 """
- _____  ____  _____ ____  _____ 
-|  _  ||  _ \|  ___|  _ \|_   _|
-| |_| || |_) | |__ | |_) | | |  
-|  _  ||  __/|  __||  __/  | |  
-| | | || |   | |___| |    _| |_  
-|_| |_||_|   |_____|_|   |_____|
 This is a script to retrieve certain data from specific register addresses of the SRNE solar controller. Please keep this in mind when using this on your own project.
 As different controllers have diffrent communication protocols. Im busy working on making a library containing the communication protocols for various makes of
 inverters and solar controllers.
