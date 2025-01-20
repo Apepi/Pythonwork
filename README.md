@@ -58,10 +58,5 @@ To explore this portfolio:
 ## Future Development
 I'm continually working on new projects and improving existing ones. Stay tuned for updates!
 
-## Contact
-Feel free to reach out if you have any questions or would like to discuss my work further.
-- LinkedIn: [AlexB](www.linkedin.com/in/alexander-büttner-217924155)
-- GitHub: [@Apepi](https://github.com/Apepi)
-
 ---
 Thank you for visiting my portfolio!
